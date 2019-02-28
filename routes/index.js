@@ -3,12 +3,14 @@ var router = express.Router();
 var request = require('request');
 var cheerio = require('cheerio');
 
-// Send 'Hello World' in response body
+// ROUTER ENDPOINTS
+
+// GET '/hello' -> Send 'Hello World' in response body
 router.get('/hello', function (req, res, next) {
   res.send('Hello World');
 });
 
-// Send ynet's headline in response body
+// GET '/headline' -> Send ynet's headline in response body
 router.get('/headline', function (req, res, next) {
   var headline = '';
   request('https://www.ynet.co.il', function (err, res1, body) {
@@ -19,7 +21,7 @@ router.get('/headline', function (req, res, next) {
   });
 });
 
-// Send ynet's subtitle in response body
+// GET '/subtitle' -> Send ynet's subtitle in response body
 router.get('/subtitle', function (req, res, next) {
   var subtitle = "";
   request('https://www.ynet.co.il', function (err, res1, body) {
